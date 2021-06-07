@@ -44,7 +44,7 @@ class EnderecosTable extends Table
         parent::initialize($config);
 
         $this->setTable('enderecos');
-        $this->setDisplayField('id_endereco');
+        $this->setDisplayField('cep');
         $this->setPrimaryKey('id_endereco');
 
         $this->addBehavior('Timestamp');

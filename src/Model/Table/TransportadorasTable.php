@@ -44,7 +44,7 @@ class TransportadorasTable extends Table
         parent::initialize($config);
 
         $this->setTable('transportadoras');
-        $this->setDisplayField('id_transportadora');
+        $this->setDisplayField('transportadora');
         $this->setPrimaryKey('id_transportadora');
 
         $this->addBehavior('Timestamp');

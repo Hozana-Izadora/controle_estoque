@@ -42,7 +42,7 @@ class CategoriasTable extends Table
         parent::initialize($config);
 
         $this->setTable('categorias');
-        $this->setDisplayField('id_categoria');
+        $this->setDisplayField('categoria');
         $this->setPrimaryKey('id_categoria');
 
         $this->addBehavior('Timestamp');
