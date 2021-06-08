@@ -53,11 +53,11 @@ class LojasController extends AppController
         if ($this->request->is('post')) {
             $loja = $this->Lojas->patchEntity($loja, $this->request->getData());
             if ($this->Lojas->save($loja)) {
-                $this->Flash->success(__('The loja has been saved.'));
+                $this->Flash->success(__('A Loja foi salva.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The loja could not be saved. Please, try again.'));
+            $this->Flash->error(__('A Loja não foi salva. Por favor, tente novamente.'));
         }
         $enderecos = $this->Lojas->Enderecos->find('list', ['limit' => 200]);
         $this->set(compact('loja', 'enderecos'));
@@ -78,11 +78,11 @@ class LojasController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $loja = $this->Lojas->patchEntity($loja, $this->request->getData());
             if ($this->Lojas->save($loja)) {
-                $this->Flash->success(__('The loja has been saved.'));
+                $this->Flash->success(__('A Loja foi salva.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The loja could not be saved. Please, try again.'));
+            $this->Flash->error(__('A Loja não foi salva. Por favor, tente novamente.'));
         }
         $enderecos = $this->Lojas->Enderecos->find('list', ['limit' => 200]);
         $this->set(compact('loja', 'enderecos'));
@@ -100,9 +100,9 @@ class LojasController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $loja = $this->Lojas->get($id);
         if ($this->Lojas->delete($loja)) {
-            $this->Flash->success(__('The loja has been deleted.'));
+            $this->Flash->success(__('A Loja foi deletada.'));
         } else {
-            $this->Flash->error(__('The loja could not be deleted. Please, try again.'));
+            $this->Flash->error(__('A Loja não foi deletada. Por favor, tente novamente.'));
         }
 
         return $this->redirect(['action' => 'index']);

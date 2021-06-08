@@ -53,11 +53,11 @@ class SaidasController extends AppController
         if ($this->request->is('post')) {
             $saida = $this->Saidas->patchEntity($saida, $this->request->getData());
             if ($this->Saidas->save($saida)) {
-                $this->Flash->success(__('The saida has been saved.'));
+                $this->Flash->success(__('A Saída foi salva.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The saida could not be saved. Please, try again.'));
+            $this->Flash->error(__('A Saída não foi salva. Por favor, tente novamente.'));
         }
         $lojas = $this->Saidas->Lojas->find('list', ['limit' => 200]);
         $transportadoras = $this->Saidas->Transportadoras->find('list', ['limit' => 200]);
@@ -79,11 +79,11 @@ class SaidasController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $saida = $this->Saidas->patchEntity($saida, $this->request->getData());
             if ($this->Saidas->save($saida)) {
-                $this->Flash->success(__('The saida has been saved.'));
+                $this->Flash->success(__('A Saída foi salva.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The saida could not be saved. Please, try again.'));
+            $this->Flash->error(__('A Saída não foi salva. Por favor, tente novamente.'));
         }
         $lojas = $this->Saidas->Lojas->find('list', ['limit' => 200]);
         $transportadoras = $this->Saidas->Transportadoras->find('list', ['limit' => 200]);
@@ -102,9 +102,9 @@ class SaidasController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $saida = $this->Saidas->get($id);
         if ($this->Saidas->delete($saida)) {
-            $this->Flash->success(__('The saida has been deleted.'));
+            $this->Flash->success(__('A Saída foi deletada.'));
         } else {
-            $this->Flash->error(__('The saida could not be deleted. Please, try again.'));
+            $this->Flash->error(__('A Saída não foi deletada. Por favor, tente novamente.'));
         }
 
         return $this->redirect(['action' => 'index']);

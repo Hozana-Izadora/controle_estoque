@@ -53,11 +53,11 @@ class TransportadorasController extends AppController
         if ($this->request->is('post')) {
             $transportadora = $this->Transportadoras->patchEntity($transportadora, $this->request->getData());
             if ($this->Transportadoras->save($transportadora)) {
-                $this->Flash->success(__('The transportadora has been saved.'));
+                $this->Flash->success(__('A Transportadora foi salva.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The transportadora could not be saved. Please, try again.'));
+            $this->Flash->error(__('A Transportadora não foi salva. Por favor, tente novamente.'));
         }
         $enderecos = $this->Transportadoras->Enderecos->find('list', ['limit' => 200]);
         $this->set(compact('transportadora', 'enderecos'));
@@ -78,11 +78,11 @@ class TransportadorasController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $transportadora = $this->Transportadoras->patchEntity($transportadora, $this->request->getData());
             if ($this->Transportadoras->save($transportadora)) {
-                $this->Flash->success(__('The transportadora has been saved.'));
+                $this->Flash->success(__('A Transportadora foi salva.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The transportadora could not be saved. Please, try again.'));
+            $this->Flash->error(__('A Transportadora não foi salva. Por favor, tente novamente.'));
         }
         $enderecos = $this->Transportadoras->Enderecos->find('list', ['limit' => 200]);
         $this->set(compact('transportadora', 'enderecos'));
@@ -100,9 +100,9 @@ class TransportadorasController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $transportadora = $this->Transportadoras->get($id);
         if ($this->Transportadoras->delete($transportadora)) {
-            $this->Flash->success(__('The transportadora has been deleted.'));
+            $this->Flash->success(__('A Transportadora foi deletada.'));
         } else {
-            $this->Flash->error(__('The transportadora could not be deleted. Please, try again.'));
+            $this->Flash->error(__('A Transportadora não foi deletada. Por favor, tente novamente.'));
         }
 
         return $this->redirect(['action' => 'index']);

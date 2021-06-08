@@ -53,11 +53,11 @@ class ProdutosController extends AppController
         if ($this->request->is('post')) {
             $produto = $this->Produtos->patchEntity($produto, $this->request->getData());
             if ($this->Produtos->save($produto)) {
-                $this->Flash->success(__('The produto has been saved.'));
+                $this->Flash->success(__('O Produto foi salvo.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The produto could not be saved. Please, try again.'));
+            $this->Flash->error(__('O Produto não foi salvo. Por favor, tente novamente.'));
         }
         $categorias = $this->Produtos->Categorias->find('list', ['limit' => 200]);
         $fornecedors = $this->Produtos->Fornecedors->find('list', ['limit' => 200]);
@@ -79,11 +79,11 @@ class ProdutosController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $produto = $this->Produtos->patchEntity($produto, $this->request->getData());
             if ($this->Produtos->save($produto)) {
-                $this->Flash->success(__('The produto has been saved.'));
+                $this->Flash->success(__('O Produto foi salvo.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The produto could not be saved. Please, try again.'));
+            $this->Flash->error(__('O Produto não foi salvo. Por favor, tente novamente.'));
         }
         $categorias = $this->Produtos->Categorias->find('list', ['limit' => 200]);
         $fornecedors = $this->Produtos->Fornecedors->find('list', ['limit' => 200]);
@@ -102,9 +102,9 @@ class ProdutosController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $produto = $this->Produtos->get($id);
         if ($this->Produtos->delete($produto)) {
-            $this->Flash->success(__('The produto has been deleted.'));
+            $this->Flash->success(__('O Produto foi deletado.'));
         } else {
-            $this->Flash->error(__('The produto could not be deleted. Please, try again.'));
+            $this->Flash->error(__('O Produto não foi dletado. Por favor, tente novamente.'));
         }
 
         return $this->redirect(['action' => 'index']);

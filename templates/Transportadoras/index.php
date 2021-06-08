@@ -35,9 +35,7 @@ $this->assign('breadcrumb',
         <thead>
           <tr>
               <th><?= $this->Paginator->sort('id_transportadora') ?></th>
-              <th><?= $this->Paginator->sort('endereco_id') ?></th>
               <th><?= $this->Paginator->sort('transportadora') ?></th>
-              <th><?= $this->Paginator->sort('numero_endereco') ?></th>
               <th><?= $this->Paginator->sort('cnpj') ?></th>
               <th><?= $this->Paginator->sort('contato') ?></th>
               <th><?= $this->Paginator->sort('telefone') ?></th>
@@ -50,18 +48,16 @@ $this->assign('breadcrumb',
           <?php foreach ($transportadoras as $transportadora): ?>
           <tr>
             <td><?= $this->Number->format($transportadora->id_transportadora) ?></td>
-            <td><?= $transportadora->has('endereco') ? $this->Html->link($transportadora->endereco->id_endereco, ['controller' => 'Enderecos', 'action' => 'view', $transportadora->endereco->id_endereco]) : '' ?></td>
             <td><?= h($transportadora->transportadora) ?></td>
-            <td><?= h($transportadora->numero_endereco) ?></td>
             <td><?= h($transportadora->cnpj) ?></td>
             <td><?= h($transportadora->contato) ?></td>
             <td><?= h($transportadora->telefone) ?></td>
             <td><?= h($transportadora->created) ?></td>
             <td><?= h($transportadora->modified) ?></td>
             <td class="actions">
-              <?= $this->Html->link(__('View'), ['action' => 'view', $transportadora->id_transportadora], ['class'=>'btn btn-xs btn-outline-primary', 'escape'=>false]) ?>
-              <?= $this->Html->link(__('Edit'), ['action' => 'edit', $transportadora->id_transportadora], ['class'=>'btn btn-xs btn-outline-primary', 'escape'=>false]) ?>
-              <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $transportadora->id_transportadora], ['class'=>'btn btn-xs btn-outline-danger', 'escape'=>false, 'confirm' => __('Are you sure you want to delete # {0}?', $transportadora->id_transportadora)]) ?>
+              <?= $this->Html->link(__('<i class = "fa fa-eye"></i>'), ['action' => 'view', $transportadora->id_transportadora], ['class'=>'btn btn-xs btn-outline-primary', 'escape'=>false, 'title'=>'Ver']) ?>
+              <?= $this->Html->link(__('<i class = "fa fa-edit"></i>'), ['action' => 'edit', $transportadora->id_transportadora], ['class'=>'btn btn-xs btn-outline-warning', 'escape'=>false, 'title'=>'Editar']) ?>
+              <?= $this->Form->postLink(__('<i class = "fa fa-trash"></i>'), ['action' => 'delete', $transportadora->id_transportadora], ['class'=>'btn btn-xs btn-outline-danger', 'escape'=>false,'title'=>'Deletar', 'confirm' => __('Are you sure you want to delete # {0}?', $transportadora->id_transportadora)]) ?>
             </td>
           </tr>
           <?php endforeach; ?>

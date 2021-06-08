@@ -26,7 +26,7 @@ $this->assign('breadcrumb',
             'label'=>false,
             'class' => 'form-control-sm',
           ]); ?>
-      <?= $this->Html->link(__('New Loja'), ['action' => 'add'], ['class' => 'btn btn-primary btn-sm']) ?>
+      <?= $this->Html->link(__('Nova Loja'), ['action' => 'add'], ['class' => 'btn btn-primary btn-sm']) ?>
     </div>
   </div>
   <!-- /.card-header -->
@@ -35,7 +35,7 @@ $this->assign('breadcrumb',
         <thead>
           <tr>
               <th><?= $this->Paginator->sort('id_loja') ?></th>
-              <th><?= $this->Paginator->sort('endereco_id') ?></th>
+              <!-- <th><?= $this->Paginator->sort('endereco_id') ?></th> -->
               <th><?= $this->Paginator->sort('loja') ?></th>
               <th><?= $this->Paginator->sort('telefone') ?></th>
               <th><?= $this->Paginator->sort('contato') ?></th>
@@ -49,7 +49,7 @@ $this->assign('breadcrumb',
           <?php foreach ($lojas as $loja): ?>
           <tr>
             <td><?= $this->Number->format($loja->id_loja) ?></td>
-            <td><?= $loja->has('endereco') ? $this->Html->link($loja->endereco->id_endereco, ['controller' => 'Enderecos', 'action' => 'view', $loja->endereco->id_endereco]) : '' ?></td>
+            <!-- <td><?= $loja->has('endereco') ? $this->Html->link($loja->endereco->id_endereco, ['controller' => 'Enderecos', 'action' => 'view', $loja->endereco->id_endereco]) : '' ?></td> -->
             <td><?= h($loja->loja) ?></td>
             <td><?= h($loja->telefone) ?></td>
             <td><?= h($loja->contato) ?></td>
@@ -57,9 +57,9 @@ $this->assign('breadcrumb',
             <td><?= h($loja->created) ?></td>
             <td><?= h($loja->modified) ?></td>
             <td class="actions">
-              <?= $this->Html->link(__('View'), ['action' => 'view', $loja->id_loja], ['class'=>'btn btn-xs btn-outline-primary', 'escape'=>false]) ?>
-              <?= $this->Html->link(__('Edit'), ['action' => 'edit', $loja->id_loja], ['class'=>'btn btn-xs btn-outline-primary', 'escape'=>false]) ?>
-              <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $loja->id_loja], ['class'=>'btn btn-xs btn-outline-danger', 'escape'=>false, 'confirm' => __('Are you sure you want to delete # {0}?', $loja->id_loja)]) ?>
+              <?= $this->Html->link(__('<i class = "fa fa-eye"></i>'), ['action' => 'view', $loja->id_loja], ['class'=>'btn btn-xs btn-outline-primary', 'escape'=>false, 'title'=>'Ver']) ?>
+              <?= $this->Html->link(__('<i class = "fa fa-edit"></i>'), ['action' => 'edit', $loja->id_loja], ['class'=>'btn btn-xs btn-outline-warning', 'escape'=>false, 'title'=>'Editar']) ?>
+              <?= $this->Form->postLink(__('<i class = "fa fa-trash"></i>'), ['action' => 'delete', $loja->id_loja], ['class'=>'btn btn-xs btn-outline-danger', 'escape'=>false,'title'=>'Apagar','confirm' => __('Are you sure you want to delete # {0}?', $loja->id_loja)]) ?>
             </td>
           </tr>
           <?php endforeach; ?>

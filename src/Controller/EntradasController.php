@@ -53,11 +53,11 @@ class EntradasController extends AppController
         if ($this->request->is('post')) {
             $entrada = $this->Entradas->patchEntity($entrada, $this->request->getData());
             if ($this->Entradas->save($entrada)) {
-                $this->Flash->success(__('The entrada has been saved.'));
+                $this->Flash->success(__('A Entrada foi salva.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The entrada could not be saved. Please, try again.'));
+            $this->Flash->error(__('A Entrada não foi salva. Por favor, tente novamente.'));
         }
         $transportadoras = $this->Entradas->Transportadoras->find('list', ['limit' => 200]);
         $this->set(compact('entrada', 'transportadoras'));
@@ -78,11 +78,11 @@ class EntradasController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $entrada = $this->Entradas->patchEntity($entrada, $this->request->getData());
             if ($this->Entradas->save($entrada)) {
-                $this->Flash->success(__('The entrada has been saved.'));
+                $this->Flash->success(__('A Entrada foi salva.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The entrada could not be saved. Please, try again.'));
+            $this->Flash->error(__('A Entrada não foi salva. Por favor, tente novamente.'));
         }
         $transportadoras = $this->Entradas->Transportadoras->find('list', ['limit' => 200]);
         $this->set(compact('entrada', 'transportadoras'));
@@ -100,9 +100,9 @@ class EntradasController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $entrada = $this->Entradas->get($id);
         if ($this->Entradas->delete($entrada)) {
-            $this->Flash->success(__('The entrada has been deleted.'));
+            $this->Flash->success(__('A Entrada foi deletada.'));
         } else {
-            $this->Flash->error(__('The entrada could not be deleted. Please, try again.'));
+            $this->Flash->error(__('A Entrada não foi deletada. Por favor, tente novamente.'));
         }
 
         return $this->redirect(['action' => 'index']);

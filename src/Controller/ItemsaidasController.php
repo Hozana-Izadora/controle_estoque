@@ -53,11 +53,11 @@ class ItemsaidasController extends AppController
         if ($this->request->is('post')) {
             $itemsaida = $this->Itemsaidas->patchEntity($itemsaida, $this->request->getData());
             if ($this->Itemsaidas->save($itemsaida)) {
-                $this->Flash->success(__('The itemsaida has been saved.'));
+                $this->Flash->success(__('O item de saída foi salvo.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The itemsaida could not be saved. Please, try again.'));
+            $this->Flash->error(__('O item de saída não foi salvo. Por favor, tente novamente.'));
         }
         $saidas = $this->Itemsaidas->Saidas->find('list', ['limit' => 200]);
         $produtos = $this->Itemsaidas->Produtos->find('list', ['limit' => 200]);
@@ -79,11 +79,11 @@ class ItemsaidasController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $itemsaida = $this->Itemsaidas->patchEntity($itemsaida, $this->request->getData());
             if ($this->Itemsaidas->save($itemsaida)) {
-                $this->Flash->success(__('The itemsaida has been saved.'));
+                $this->Flash->success(__('O item de saída foi salvo.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The itemsaida could not be saved. Please, try again.'));
+            $this->Flash->error(__('O item de saída não foi salvo. Por favor, tente novamente.'));
         }
         $saidas = $this->Itemsaidas->Saidas->find('list', ['limit' => 200]);
         $produtos = $this->Itemsaidas->Produtos->find('list', ['limit' => 200]);
@@ -102,9 +102,9 @@ class ItemsaidasController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $itemsaida = $this->Itemsaidas->get($id);
         if ($this->Itemsaidas->delete($itemsaida)) {
-            $this->Flash->success(__('The itemsaida has been deleted.'));
+            $this->Flash->success(__('O item de saída não foi deletado.'));
         } else {
-            $this->Flash->error(__('The itemsaida could not be deleted. Please, try again.'));
+            $this->Flash->error(__('O item de saída não foi deletado. Por favor, tente novamente.'));
         }
 
         return $this->redirect(['action' => 'index']);
